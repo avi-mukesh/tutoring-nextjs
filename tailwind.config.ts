@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { blackA, mauve, violet, indigo, purple } from "@radix-ui/colors";
 
 const config: Config = {
   content: [
@@ -11,6 +12,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        ...blackA,
+        ...mauve,
+        ...violet,
+        ...purple,
+        ...indigo,
       },
     },
   },
