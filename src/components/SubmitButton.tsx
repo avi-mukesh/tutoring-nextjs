@@ -1,28 +1,31 @@
-import React, { useState } from "react";
+"use client";
+
+import React from "react";
 import { Callout } from "@radix-ui/themes";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
+import { useFormStatus } from "react-dom";
 
 type PropsType = {
-  submitForm: () => void;
-  disabledButton: boolean;
+  message: string | undefined | null;
 };
 
-function SubmitButton({ submitForm, disabledButton }: PropsType) {
-  const [show, setShow] = useState(false);
-  const onClick = () => {
-    setShow(true);
-    submitForm();
-  };
+function SubmitButton({ message }: PropsType) {
+  const { pending } = useFormStatus();
 
-  if (show) {
+  const submitted = message && message.length > 0;
+  const disabled = pending;
+
+  if (submitted) {
+    console.log("submitted");
     return (
-      <Callout.Root variant="outline" color="green" className="mx-auto">
+      <Callout.Root variant="surface" color="green" className="mx-auto">
         <Callout.Icon>
           <CheckCircledIcon />
         </Callout.Icon>
         <Callout.Text>
           Your message has been submitted. I will get back to you within a few
+          hours.
         </Callout.Text>
       </Callout.Root>
     );
@@ -30,9 +33,9 @@ function SubmitButton({ submitForm, disabledButton }: PropsType) {
   return (
     <Button
       variant="surface"
-      onClick={onClick}
-      disabled={disabledButton}
-      className="mx-auto"
+      disabled={disabled}
+      className="mx-auto cursor-pointer"
+      type="submit"
     >
       Submit
     </Button>
