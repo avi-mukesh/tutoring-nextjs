@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useFormState } from "react-dom";
 
 import Heading from "./Heading";
