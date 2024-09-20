@@ -15,7 +15,7 @@ type ContactFormState = {
 const ContactMessageSchema = z.object({
   id: z.string(),
   name: z.string(),
-  email: z.string().email(),
+  email: z.string(),
   message: z.string(),
 });
 
@@ -31,7 +31,10 @@ export async function createMessage(
     message: formData.get("message"),
   });
 
+  console.log(validatedFields);
+
   if (!validatedFields.success) {
+    console.log(validatedFields.error.flatten().fieldErrors);
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: "Invalid data. Failed to send message.",
