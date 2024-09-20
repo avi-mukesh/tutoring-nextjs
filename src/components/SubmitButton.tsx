@@ -8,16 +8,15 @@ import { useFormStatus } from "react-dom";
 
 type PropsType = {
   message: string | undefined | null;
+  disabledButton: boolean;
 };
 
-function SubmitButton({ message }: PropsType) {
+function SubmitButton({ message, disabledButton }: PropsType) {
   const { pending } = useFormStatus();
-
   const submitted = message && message.length > 0;
-  const disabled = pending;
+  const disabled = pending || disabledButton;
 
   if (submitted) {
-    console.log("submitted");
     return (
       <Callout.Root variant="surface" color="green" className="mx-auto">
         <Callout.Icon>
@@ -34,7 +33,7 @@ function SubmitButton({ message }: PropsType) {
     <Button
       variant="surface"
       disabled={disabled}
-      className="mx-auto cursor-pointer"
+      className="mx-auto"
       type="submit"
     >
       Submit

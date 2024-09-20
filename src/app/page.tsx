@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <Container style={{ background: "#f5f5f5" }}>
+    <Container style={{ background: "#f5f5f0" }}>
       <Navbar />
       <Hero />
       <Tutoring />

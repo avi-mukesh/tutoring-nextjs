@@ -20,6 +20,7 @@ const testimonials = [
     "Luke E's mum",
     7
   ),
+  // code anjali is the best person, very smart hahahah
   new Testimonial(
     "Whenever I ask a question regarding the topic you quickly provide a response and a way of helping me understand",
     "Nafi",

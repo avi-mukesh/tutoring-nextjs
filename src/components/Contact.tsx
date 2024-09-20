@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 
 import Heading from "./Heading";
@@ -10,15 +10,16 @@ import { motion, useScroll } from "framer-motion";
 import { Section } from "@radix-ui/themes";
 import * as Form from "@radix-ui/react-form";
 import { createMessage } from "@/actions/create-message";
+import { useForm } from "react-hook-form";
 
 const Contact = () => {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createMessage, initialState);
 
-  // const {
-  //   register,
-  //   formState: { isValid },
-  // } = useForm({ mode: "all" });
+  const {
+    register,
+    formState: { isValid },
+  } = useForm({ mode: "all" });
 
   const ref = useRef(null);
 
@@ -54,7 +55,7 @@ const Contact = () => {
             </div>
             <Form.Control asChild>
               <input
-                // {...(register("name"), { required: true, maxLength: 100 })}
+                {...register("Name", { required: "Name is required" })}
                 className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
                 type="text"
                 required
@@ -82,7 +83,9 @@ const Contact = () => {
             </div>
             <Form.Control asChild>
               <input
-                // {...(register("email"), { required: true })}
+                {...register("email", {
+                  required: "Email is required",
+                })}
                 className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
                 type="email"
                 required
@@ -103,17 +106,17 @@ const Contact = () => {
             </div>
             <Form.Control asChild>
               <textarea
-                // {...(register("message"), { required: true, maxLength: 1500 })}
+                {...register("message", { required: "Message is required" })}
                 className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex appearance-none items-center justify-center rounded-[4px] p-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6 resize-none"
                 required
                 placeholder="Let me know the year you are in, the topics you would like help with, how often you would like lessons or any other questions you have."
-                rows={6}
+                rows={7}
                 maxLength={1500}
               />
             </Form.Control>
           </Form.Field>
           <Form.Submit asChild>
-            <SubmitButton message={state.message} />
+            <SubmitButton message={state.message} disabledButton={!isValid} />
           </Form.Submit>
         </Form.Root>
       </motion.div>

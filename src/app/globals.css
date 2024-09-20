@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,4 +30,70 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.atkinson-hyperlegible-regular {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.atkinson-hyperlegible-bold {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.atkinson-hyperlegible-regular-italic {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.atkinson-hyperlegible-bold-italic {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.palanquin-thin {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.palanquin-extralight {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.palanquin-light {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.palanquin-regular {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.palanquin-medium {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.palanquin-semibold {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.palanquin-bold {
+  font-family: "Palanquin", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }

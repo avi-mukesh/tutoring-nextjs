@@ -51,16 +51,19 @@ const Hero = () => {
         >
           <motion.h1
             variants={item}
-            className="mb-1 text-center text-5xl uppercase"
+            className="mb-1 text-center text-5xl uppercase atkinson-hyperlegible-bold"
           >
             Maths Tutoring
           </motion.h1>
-          <motion.p variants={item} className="mb-10 text-xl text-center">
+          <motion.p
+            variants={item}
+            className="mb-10 text-xl text-center palanquin-regular"
+          >
             Any Topic. Any Time.
           </motion.p>
           <motion.a
             variants={item}
-            className="text-center border border-slate-700 p-3 mx-auto"
+            className="text-center border p-3 mx-auto hover:bg-slate-800 hover:text-slate-100"
             href="#contact"
           >
             Contact me
