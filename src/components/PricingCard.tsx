@@ -9,10 +9,13 @@ type PropsType = {
 const PricingCard = ({ level, price }: PropsType) => {
   return (
     <Card variant="classic" className="mb-3 p-0 w-[100px] bg-slate-50">
-      <Text as="div" className="text-center">
+      <Text as="div" className="text-center palanquin-regular">
         {level}
       </Text>
-      <Text as="div" className="text-center">{`£${price}`}</Text>
+      <Text
+        as="div"
+        className="text-center palanquin-light"
+      >{`£${price}`}</Text>
     </Card>
   );
 };

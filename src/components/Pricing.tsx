@@ -16,7 +16,7 @@ const Pricing = () => {
           <PricingCard level="GCSE" price="30" />
           <PricingCard level="Primary" price="20" />
         </Flex>
-        <Text as="div" align="center">
+        <Text as="div" align="center" className="text-sm">
           *Further maths is an additional £5.
         </Text>
       </div>

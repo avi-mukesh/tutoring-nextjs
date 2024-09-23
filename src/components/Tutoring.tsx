@@ -33,7 +33,7 @@ const Tutoring = () => {
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center p-5 gap-8">
         <div>
-          <p className="lead">All online.</p>
+          <p className="lead palanquin-light">All online.</p>
         </div>
         <ImageWithCaption
           src="/computer.webp"

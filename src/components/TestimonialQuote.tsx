@@ -9,10 +9,10 @@ type PropsType = {
 const TestimonialQuote = ({ quote, studentName, yearGroup }: PropsType) => {
   return (
     <figure className="text-center p-2 mb-4">
-      <blockquote className="blockquote">
+      <blockquote className="blockquote palanquin-medium text-lg">
         <p className="mb-2">{quote}</p>
       </blockquote>
-      <figcaption>
+      <figcaption className="atkinson-hyperlegible-regular">
         {studentName}
         {", Year "}
         {yearGroup}

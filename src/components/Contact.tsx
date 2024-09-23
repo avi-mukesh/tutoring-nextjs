@@ -43,7 +43,7 @@ const Contact = () => {
         >
           <Form.Field className="grid mb-[10px]" name="name">
             <div className="flex items-baseline justify-between">
-              <Form.Label className="text-[15px] font-medium leading-[35px]">
+              <Form.Label className="text-[15px] font-medium leading-[35px] atkinson-hyperlegible-regular">
                 Name
               </Form.Label>
               <Form.Message
@@ -56,7 +56,7 @@ const Contact = () => {
             <Form.Control asChild>
               <input
                 {...register("name", { required: "Name is required" })}
-                className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+                className="bg-[#f5f5f0] box-border w-full shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6 palanquin-light"
                 type="text"
                 required
                 maxLength={100}
@@ -65,7 +65,7 @@ const Contact = () => {
           </Form.Field>
           <Form.Field className="grid mb-[10px]" name="email">
             <div className="flex items-baseline justify-between">
-              <Form.Label className="text-[15px] font-medium leading-[35px]">
+              <Form.Label className="text-[15px] font-medium leading-[35px] atkinson-hyperlegible-regular">
                 Email
               </Form.Label>
               <Form.Message
@@ -86,14 +86,14 @@ const Contact = () => {
                 {...register("email", {
                   required: "Email is required",
                 })}
-                className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6"
+                className="bg-[#f5f5f0] box-border w-full shadow-blackA6 inline-flex h-[35px] appearance-none items-center justify-center px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6 palanquin-light"
                 type="email"
                 required
               />
             </Form.Control>
           </Form.Field>
           <Form.Field className="grid mb-[10px]" name="message">
-            <div className="flex items-baseline justify-between">
+            <div className="flex items-baseline justify-between atkinson-hyperlegible-regular">
               <Form.Label className="text-[15px] font-medium leading-[35px]">
                 Message
               </Form.Label>
@@ -107,7 +107,7 @@ const Contact = () => {
             <Form.Control asChild>
               <textarea
                 {...register("message", { required: "Message is required" })}
-                className="box-border w-full bg-blackA2 shadow-blackA6 inline-flex appearance-none items-center justify-center rounded-[4px] p-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6 resize-none"
+                className="bg-[#f5f5f0] box-border w-full shadow-blackA6 inline-flex appearance-none items-center justify-center p-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA6 resize-none palanquin-light"
                 required
                 placeholder="Let me know the year you are in, the topics you would like help with, how often you would like lessons or any other questions you have."
                 rows={7}

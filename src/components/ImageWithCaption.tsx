@@ -27,7 +27,9 @@ const ImageWithCaption = ({
           height={height}
           className="mb-1 mx-auto"
         />
-        <figcaption className="text-center">{caption}</figcaption>
+        <figcaption className="text-center palanquin-regular">
+          {caption}
+        </figcaption>
       </figure>
     </div>
   );

@@ -13,7 +13,7 @@ const Navbar = () => {
   const [navbarExpanded, setNavbarExpanded] = useState(false);
 
   return (
-    <NavigationMenu.Root className="my-10 w-[80%] mx-auto relative min-h-[100px] block">
+    <NavigationMenu.Root className="my-5 w-[80%] mx-auto relative min-h-[100px] block">
       <NavigationMenu.List className="flex justify-between md:hidden">
         <NavigationMenu.Item className="flex flex-col justify-center">
           <Image

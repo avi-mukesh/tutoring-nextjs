@@ -33,7 +33,7 @@ function SubmitButton({ message, disabledButton }: PropsType) {
     <Button
       variant="surface"
       disabled={disabled}
-      className="mx-auto"
+      className="mx-auto palanquin-medium text-lg"
       type="submit"
     >
       Submit

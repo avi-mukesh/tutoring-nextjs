@@ -51,7 +51,7 @@ const Hero = () => {
         >
           <motion.h1
             variants={item}
-            className="mb-1 text-center text-5xl uppercase atkinson-hyperlegible-bold"
+            className="mb-1 text-center text-5xl uppercase atkinson-hyperlegible-regular"
           >
             Maths Tutoring
           </motion.h1>
@@ -63,7 +63,7 @@ const Hero = () => {
           </motion.p>
           <motion.a
             variants={item}
-            className="text-center border p-3 mx-auto hover:bg-slate-800 hover:text-slate-100"
+            className="text-lg palanquin-medium text-center border p-3 mx-auto hover:bg-slate-800 hover:text-slate-100"
             href="#contact"
           >
             Contact me

@@ -21,8 +21,12 @@ const Heading = ({ title, subtitle }: PropsType) => {
 
   return (
     <motion.div initial={offscreen} whileInView={onscreen}>
-      <h2 className="text-3xl text-center my-2">{title}</h2>
-      {subtitle && <p className="text-center text-lg">{subtitle}</p>}
+      <h2 className="text-3xl text-center my-2 atkinson-hyperlegible-regular">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="text-center text-lg palanquin-regular">{subtitle}</p>
+      )}
     </motion.div>
   );
 };

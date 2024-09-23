@@ -32,7 +32,10 @@ const Testimonials = () => {
   return (
     <Section id="testimonials">
       <div className="row">
-        <Heading title="What others are saying" />
+        <Heading
+          title="What others are saying"
+          subtitle="Student testimonials"
+        />
         <Carousel
           responsive={responsive}
           autoPlay={true}
