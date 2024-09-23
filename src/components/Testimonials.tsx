@@ -31,7 +31,7 @@ const responsive = {
 const Testimonials = () => {
   return (
     <Section id="testimonials">
-      <div className="row">
+      <div>
         <Heading
           title="What others are saying"
           subtitle="Student testimonials"
