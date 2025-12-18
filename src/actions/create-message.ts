@@ -1,5 +1,6 @@
 "use server";
 import * as nodemailer from "nodemailer";
+import { MailtrapTransport } from "mailtrap";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -43,18 +44,19 @@ export async function createMessage(
 
   const { name, email, message } = validatedFields.data;
 
-  const transport = nodemailer.createTransport({
-    host: "live.smtp.mailtrap.io",
-    port: 587,
-    auth: {
-      user: "api",
-      pass: process.env.PASSWORD,
-    },
-  });
+  const TOKEN = process.env.MAILTRAP_TOKEN as string;
+  const transport = nodemailer.createTransport(
+    MailtrapTransport({
+      token: TOKEN,
+    })
+  );
 
   const mailOptions = {
-    from: "enquiries@mukeshacademy.com",
-    to: "avimukesh10@gmail.com",
+    from: {
+      address: "enquiries@mukeshacademy.com",
+      name: "Enquiry"
+    },
+    to: ["avimukesh10@googlemail.com"],
     subject: `Tutoring Enquiry ${name}`,
     text: `
         Name: ${name}
@@ -63,17 +65,11 @@ export async function createMessage(
     `,
   };
 
+  console.log('!!! sending message', mailOptions);
   // Send the email
-  transport.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log("Error:", error);
-      return { message: "Failed to send email due to server error." };
-    } else {
-      console.log("Email sent: " + info.response);
-      return { message: "Message sent" };
-    }
-  });
+  transport.sendMail(mailOptions).then(console.log, console.error)
+  console.log('!!! email sent')
 
-  revalidatePath("/dashboard/reading");
+  revalidatePath("/");
   return { message: "Message sent successfully" };
 }
