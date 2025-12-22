@@ -44,6 +44,9 @@ export async function createMessage(
 
   const { name, email, message } = validatedFields.data;
 
+  if(message.toLowerCase().includes('mukeshacademy.com') || message.toLowerCase().includes('http'))
+    return { message: 'Spam'}
+
   const TOKEN = process.env.MAILTRAP_TOKEN as string;
   const transport = nodemailer.createTransport(
     MailtrapTransport({
@@ -68,7 +71,6 @@ export async function createMessage(
   console.log('!!! sending message', mailOptions);
   // Send the email
   transport.sendMail(mailOptions).then(console.log, console.error)
-  console.log('!!! email sent')
 
   revalidatePath("/");
   return { message: "Message sent successfully" };
