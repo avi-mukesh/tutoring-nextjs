@@ -36,6 +36,11 @@ const testimonials = [
     "Luke G's mum",
     13
   ),
+  new Testimonial(
+    "My son enjoyed working with Avi, ... I would highly recommend Avi to any student wanting to further their understanding of A Level maths.",
+    "Adil R's dad",
+    13
+  ),
   new Testimonial("Thank you so much for your support.", "Anthony's mum", 11),
 ];
 
