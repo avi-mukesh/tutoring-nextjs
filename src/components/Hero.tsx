@@ -1,83 +1,46 @@
-"use client";
-
-import { useRef } from "react";
-import { Flex } from "@radix-ui/themes";
-import { motion, useScroll } from "framer-motion";
-import ImageWithCaption from "./ImageWithCaption";
-
 const Hero = () => {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end start", "end end"],
-  });
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.4,
-      },
-    },
-  };
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
-  };
-
   return (
-    <Flex
-      direction="column"
-      justify="center"
-      align="center"
-      className="h-[90vh]"
-      id="about"
-    >
-      <motion.div
-        ref={ref}
-        initial={{ x: -200 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        style={{ opacity: scrollYProgress }}
-        className=" w-[80%] md:w-full gap-8 md:gap-0 flex flex-col md:flex-row-reverse items-center justify-around p-10 shadow-2xl bg-white"
-      >
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="text-center"
-        >
-          <motion.h1
-            variants={item}
-            className="mb-1 text-center text-5xl uppercase atkinson-hyperlegible-regular"
-          >
-            Maths Tutoring
-          </motion.h1>
-          <motion.p
-            variants={item}
-            className="mb-10 text-xl text-center palanquin-regular"
-          >
-            Any Topic. Any Time.
-          </motion.p>
-          <motion.a
-            variants={item}
-            className="text-lg palanquin-medium text-center border p-3 mx-auto hover:bg-slate-800 hover:text-slate-100"
-            href="#contact"
-          >
-            Contact me
-          </motion.a>
-        </motion.div>
-        <ImageWithCaption
+    <section className="hero">
+      <div className="hero-bg">
+        {/* Image lives in /public — see README. */}
+        <img
           src="/lecture.webp"
-          description="Avi writing on chalkboard"
-          caption="University of Warwick, Master of Mathematics. First Class."
-          width={350}
-          height={350}
+          alt="Avi Mukesh at a chalkboard covered in equations"
         />
-      </motion.div>
-    </Flex>
+      </div>
+      <span className="credit">Warwick · MMath · First Class</span>
+      <div className="wrap hero-inner">
+        <span className="eyebrow">Online maths tuition</span>
+        <h1>
+          Any topic.
+          <br />
+          Any time.
+          <br />
+          <em className="hl-word">
+            Mastered.
+            <svg
+              className="underline"
+              viewBox="0 0 300 24"
+              preserveAspectRatio="none"
+            >
+              <path d="M4 15 C 60 6, 130 6, 180 12 C 230 18, 270 16, 296 9" />
+            </svg>
+          </em>
+        </h1>
+        <p className="lede">
+          One-to-one tuition with a Warwick mathematician — patient, clear, and
+          built around you.
+        </p>
+        <div className="hero-cta">
+          <a href="#contact" className="btn btn-fill" data-magnetic>
+            Arrange a free 15-min call
+          </a>
+          <a href="#works" className="btn" data-magnetic>
+            How it works
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 

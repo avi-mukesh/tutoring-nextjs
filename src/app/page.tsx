@@ -1,20 +1,36 @@
-import { Container } from "@radix-ui/themes";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Tutoring from "@/components/Tutoring";
+import Ticker from "@/components/Ticker";
+import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import ClientEffects from "@/components/ClientEffects";
 
 export default function Home() {
   return (
-    <Container style={{ background: "#f5f5f0" }}>
+    <>
       <Navbar />
-      <Hero />
-      <Tutoring />
-      <Pricing />
-      <Testimonials />
-      <Contact />
-    </Container>
+      <main id="top">
+        <Hero />
+        <Ticker />
+        <HowItWorks />
+        <Pricing />
+        <Testimonials />
+        <Contact />
+      </main>
+
+      {/* Sticky "Book a free call" — shown by ClientEffects once past the hero */}
+      <div className="sticky-cta" id="stickyCta">
+        <a href="#contact">
+          <span className="pulse" />
+          Book a free call
+        </a>
+      </div>
+
+      <Footer />
+      <ClientEffects />
+    </>
   );
 }

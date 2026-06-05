@@ -1,61 +1,83 @@
 "use client";
 
-import React from "react";
-import Heading from "./Heading";
-import TestimonialQuote from "./TestimonialQuote";
-import testimonials from "@/app/testimonials";
-import { Section } from "@radix-ui/themes";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+import { useEffect, useRef, useState } from "react";
+import testimonials from "./testimonials-data";
 
 const Testimonials = () => {
+  const [active, setActive] = useState(0);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const count = testimonials.length;
+
+  const go = (n: number) => setActive(((n % count) + count) % count);
+
+  const reset = () => {
+    if (timer.current) clearInterval(timer.current);
+    timer.current = setInterval(() => setActive((a) => (a + 1) % count), 6000);
+  };
+
+  useEffect(() => {
+    reset();
+    return () => {
+      if (timer.current) clearInterval(timer.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handle = (n: number) => {
+    go(n);
+    reset();
+  };
+
   return (
-    <Section id="testimonials">
-      <div>
-        <Heading
-          title="What others are saying"
-          subtitle="Student testimonials"
-        />
-        <Carousel
-          responsive={responsive}
-          autoPlay={true}
-          autoPlaySpeed={6000}
-          transitionDuration={500}
-          keyBoardControl={true}
-          infinite={true}
-          showDots={true}
-        >
-          {testimonials.map((t) => (
-            <TestimonialQuote
+    <section className="voices" id="voices">
+      <div className="wrap">
+        <div className="sec-head" data-reveal>
+          <span className="eyebrow">What others are saying</span>
+          <h2>Voices.</h2>
+        </div>
+
+        <div className="quotes" data-reveal data-reveal-delay="1">
+          {testimonials.map((t, i) => (
+            <figure
               key={t.id}
-              quote={t.quote}
-              studentName={t.studentName}
-              yearGroup={t.yearGroup}
-            />
+              className={`quote${i === active ? " active" : ""}`}
+            >
+              <blockquote>{t.quote}</blockquote>
+              <cite>{t.who}</cite>
+            </figure>
           ))}
-        </Carousel>
+        </div>
+
+        <div className="q-controls">
+          <div className="dots">
+            {testimonials.map((t, i) => (
+              <button
+                key={t.id}
+                className={`dot${i === active ? " active" : ""}`}
+                aria-label={`Show testimonial ${i + 1}`}
+                onClick={() => handle(i)}
+              />
+            ))}
+          </div>
+          <div className="arrows">
+            <button
+              className="arrow"
+              aria-label="Previous"
+              onClick={() => handle(active - 1)}
+            >
+              ‹
+            </button>
+            <button
+              className="arrow"
+              aria-label="Next"
+              onClick={() => handle(active + 1)}
+            >
+              ›
+            </button>
+          </div>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };
 
